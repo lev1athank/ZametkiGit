@@ -83,5 +83,5 @@ document.querySelector("#addTask").addEventListener("click",
 function toggleInfoPole() {
     redactBtn.children[0].className = redactBtn.children[0].className == "fas fa-edit" ? "fas fa-times" : "fas fa-edit"
     contentblock.toggleAttribute("hidden")
-    redactOrcreateBlock.toggleAttribute("hidden")
+    redactOrcreateBlock.toggleAttribute("hidden");
 }
