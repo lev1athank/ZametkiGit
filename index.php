@@ -96,7 +96,7 @@ $objects = Article::getAllDate($conn);
             <input type="hidden" name="id" id="idForm">
         </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
