@@ -46,7 +46,7 @@ $objects = Article::getAllDate($conn);
 <body>
     <div class="panel">
         <header><button class="redactBtn" id="addTask"><i class="fas fa-plus"></i></i></button></header>
-        <main>
+        <main class="contentPole">
             <?php foreach($objects as $object) {
             echo
             '<div class="task">

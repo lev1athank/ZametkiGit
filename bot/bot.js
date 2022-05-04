@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const token = '5104688774:AAFZr02MVqTE3shadMVbxQ9c-t9JIWOo_BE'
 const bot = new TelegramApi(token, {polling: true})
 
-
+//npm run dev
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'leviathan',
@@ -52,7 +52,7 @@ conn.query(select, (err, result) => {
 
 function sendTask(task) {
     conn.query(sendToUser + task['id'])
-    bot.sendMessage(User_id, `на сегодня в ${task['time'].split(":").splice(0,2).join(":")} запланировано \n ${task['content']}`)
+    bot.sendMessage(User_id, `на сегодня в ${task['time'].split(":").splice(0,2).join(":")} запланировано \n«${task['content']}»`)
 } 
 }, 1000 * 60)
 

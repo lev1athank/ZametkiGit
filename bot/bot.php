@@ -16,7 +16,7 @@ foreach ($objects as $task) {
     if($H == 0 && $i < 30 && $task['sendToUser'] == 0) {
         $params = [
             'chat_id' => 804206736,
-            'text' => sprintf("на сегодня в %s запланировано \n %s", join(":", explode(":", $task["time"], -1)), $task['content'])
+            'text' => sprintf("на сегодня в %s запланировано \n«%s»", join(":", explode(":", $task["time"], -1)), $task['content'])
         ];
         $url .= '?' . http_build_query($params);
     

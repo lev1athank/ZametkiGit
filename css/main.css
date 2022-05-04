@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
 *{
     box-sizing: border-box;
+    font-family: 'Play', sans-serif;
 }
 
 body {
@@ -11,9 +14,9 @@ body {
     display: flex;
     position: relative;
     background-color: #A1E3D8;
-    border-bottom-right-radius: 30px;
+    border-bottom-right-radius: 15px;
     width: 400px;
-    height: 800px;
+    height: 670px;
 }
 
 .panel > header {
@@ -64,14 +67,34 @@ body {
 
 }
 
-.panel > main {
-    margin: 0 5px;
+.contentPole:hover {
+    overflow-y: scroll;
+}
+.contentPole {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    overflow-y: hidden;
+    margin: 0 0 0 5px;
     display: flex;
     position: relative;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 50px;   
+}
+
+.contentPole::-webkit-scrollbar {
+    background-color: #026e6e;
+    width: 10px;
+    border-radius: 2px;
+    height: 20px;
     
-    
+}
+
+.contentPole::-webkit-scrollbar-thumb {
+    background-color: #107474;
+}
+.contentPole::-webkit-scrollbar-track{
+    background-color: #A1E3D8;
 }
 
 .task {
@@ -81,17 +104,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 380px;
+    width: 370px;
     height: 50px;
     background-color: #069A8E;
 
 }
 
 .task:hover {
-    border: 1px solid black;
+    background-color: #04796f;
 }
 
 .title {
+    font-family: 'Play', sans-serif;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -126,6 +150,7 @@ body {
 }
 
 .info .content {
+    font-family: 'Play', sans-serif;
     width: 100%;
     height: 100%;
     padding: 20px;

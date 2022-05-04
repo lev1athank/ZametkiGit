@@ -1,10 +1,11 @@
 const contentblock = document.querySelector(".infoblock")
 const redactOrcreateBlock = document.querySelector(".createORcorect")
 const infoblock = document.querySelector(".info")
+const infoblockHEADER = document.querySelector(".info > header")
 const redactBtn = infoblock.querySelector("#redactBtn")
 
-infoblock.addEventListener("mousedown", ()=> infoblock.addEventListener("mousemove", onDarg))
-infoblock.addEventListener("mouseup", ()=> infoblock.removeEventListener("mousemove", onDarg))
+infoblockHEADER.addEventListener("mousedown", ()=> infoblock.addEventListener("mousemove", onDarg))
+infoblockHEADER.addEventListener("mouseup", ()=> infoblock.removeEventListener("mousemove", onDarg))
 
 
 function onDarg({movementX, movementY}){
