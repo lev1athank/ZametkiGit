@@ -49,8 +49,8 @@ $objects = Article::getAllDate($conn);
         <main class="contentPole">
             <?php foreach($objects as $object) {
             echo
-            '<div class="task">
-                <div class="title">'. $object["content"]. '</div>
+            sprintf('<div class="%s" id="task">', $object['sendToUser'] == 2? "oldTask" : "task") . 
+                '<div class="title">'. $object["content"]. '</div>
                 <div class="date">'
                 
                 .join(".", array_reverse(explode("-", $object["date"]))).'<span style="font-weight: bold;">'.join(":", explode(":", $object["time"], -1)).'</span> 

@@ -10,9 +10,12 @@ $conn = $data->getConn();
 $objects = Article::getAllDate($conn, 'WHERE date = ' . '"20' . date("y-m-d") . '"');
 foreach ($objects as $task) {
     $razniza = explode(".", date ("H.i", strtotime($task['time']) - strtotime(date("H:i:s"))));
-    $H = intval($razniza[0])-2;
+    $H = intval($razniza[0])-4;
     $i = intval($razniza[1]);
-
+    if($H < 0) {
+        Article::setSend($conn, $task['id'], 2);
+        
+    }
     if($H == 0 && $i < 30 && $task['sendToUser'] == 0) {
         $params = [
             'chat_id' => 804206736,
@@ -26,6 +29,7 @@ foreach ($objects as $task) {
         Article::setSend($conn, $task['id']);
         
     }
+
 
     
 }

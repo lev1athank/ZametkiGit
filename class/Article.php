@@ -25,8 +25,8 @@ class Article {
         $stmt->execute();  
     }
 
-    public static function setSend($conn, $id) {
-        $sql = "UPDATE leviathan.zametki SET sendToUser = 1  WHERE id = " . $id . ";";
+    public static function setSend($conn, $id, $code = 1) {
+        $sql = "UPDATE leviathan.zametki SET sendToUser = $code  WHERE id = $id;";
         $stmt = $conn->prepare($sql);
 
         $stmt->execute();   

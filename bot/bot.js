@@ -24,26 +24,30 @@ conn.connect( err=> {
 
 User_id = 804206736
 const select = 'SELECT * FROM leviathan.zametki WHERE date = "' + new Date().toLocaleDateString().split(".").reverse().join("-") + '"';
-const sendToUser = 'UPDATE leviathan.zametki SET sendToUser = 1 WHERE id ='
+const sendToUser = (code = 1)=>`UPDATE leviathan.zametki SET sendToUser = ${code} WHERE id =`
 setInterval(()=>{
 
 
 conn.query(select, (err, result) => {
     result.forEach(element => {
-        if(element['sendToUser'] == 0) {
+        if(element['sendToUser'] != 2) {
 
             const firstDate = new Date().toLocaleTimeString();
             const secondDate = element['time'];
                         
-            let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
+            let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); 
             const different = (getDate(secondDate) - getDate(firstDate));
-            
+            if(different<=0) {
+                conn.query(sendToUser(2) + element['id'])
+                
+            }else if(element['sendToUser'] == 0){
             let hours = Math.floor((different % 86400000) / 3600000);
             let minutes = Math.round(((different % 86400000) % 3600000) / 60000);
             if(hours == 0 && minutes <= 30) {
                 sendTask(element)
             }
             }
+        }
             
             
     });
@@ -51,7 +55,7 @@ conn.query(select, (err, result) => {
 })
 
 function sendTask(task) {
-    conn.query(sendToUser + task['id'])
+    conn.query(sendToUser() + task['id'])
     bot.sendMessage(User_id, `на сегодня в ${task['time'].split(":").splice(0,2).join(":")} запланировано \n«${task['content']}»`)
 } 
 }, 1000 * 60)

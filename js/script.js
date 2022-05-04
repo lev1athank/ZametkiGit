@@ -30,11 +30,11 @@ redactBtn.addEventListener("click", ()=>{
 
 })
 
-const tasks = document.querySelectorAll(".task");
+const tasks = document.querySelectorAll("#task");
 
 
 
-console.log(infoblock)
+
 tasks.forEach(element => {
     element.addEventListener('click', ()=>accommodation(element))
 });

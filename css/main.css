@@ -109,6 +109,21 @@ body {
     background-color: #069A8E;
 
 }
+.oldTask{
+    padding: 0 5px;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 370px;
+    height: 50px;
+    background-color: #EB5353;
+}
+
+.oldTask:hover{
+    background-color: #a83b3b;
+}
 
 .task:hover {
     background-color: #04796f;
