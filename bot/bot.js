@@ -23,14 +23,15 @@ conn.connect( err=> {
 
 
 User_id = 804206736
-const select = 'SELECT * FROM leviathan.zametki';
+const select = 'SELECT * FROM leviathan.zametki WHERE date = "' + new Date().toLocaleDateString().split(".").reverse().join("-") + '"';
 const sendToUser = 'UPDATE leviathan.zametki SET sendToUser = 1 WHERE id ='
 setInterval(()=>{
 
 
 conn.query(select, (err, result) => {
     result.forEach(element => {
-        if(element['sendToUser'] == 0 && new Date(element['date']).toLocaleDateString() == (new Date()).toLocaleDateString()) {
+        if(element['sendToUser'] == 0) {
+
             const firstDate = new Date().toLocaleTimeString();
             const secondDate = element['time'];
                         

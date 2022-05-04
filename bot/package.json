@@ -1,8 +1,13 @@
 {
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "node-telegram-bot-api": "^0.57.0",
+    "nodemon": "^2.0.16"
+  },
   "name": "bot",
   "version": "1.0.0",
-  "description": "",
   "main": "bot.js",
+  "devDependencies": {},
   "scripts": {
     "dev": "nodemon bot.js",
     "start": "node bot.js"
@@ -10,9 +15,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "mysql": "^2.18.1",
-    "node-telegram-bot-api": "^0.57.0",
-    "nodemon": "^2.0.16"
-  }
+  "description": ""
 }
